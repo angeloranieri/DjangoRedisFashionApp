@@ -1,0 +1,11 @@
+<header>
+    <h1><a href="/">Secondo Hand Fashion App</a></h1>
+</header>
+
+{% for item in items %}
+    <article>
+        <time>created: {{ item.created_date }}</time>
+        <h2><a href="">{{ item.code }}</a></h2>
+        <p>{{ item.description|linebreaksbr }}</p>
+    </article>
+{% endfor %}
