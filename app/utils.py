@@ -19,3 +19,4 @@ def send_transaction (message):
     tx = w3.eth.sendRawTransaction(signedTx.rawTransaction)
     txId = w3.toHex(tx)
     return txId
+
