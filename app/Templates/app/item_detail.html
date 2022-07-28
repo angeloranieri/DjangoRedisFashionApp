@@ -2,12 +2,23 @@
 
 {% block content %}
     <article class="item">
+        <aside class="actions">
+        {% if user.is_authenticated %}
+            <a class="btn btn-secondary" href="{% url 'item_edit' pk=item.pk %}">
+                {% include './icons/pencil-fill.svg' %}
+            </a>
+        {% endif %}
+        </aside>
+
+        <h2>{{ item.code }}</h2>
+        <p>{{ item.description|linebreaksbr }}</p>
+        <h4>Detail of item exchanges:</h4>
         {% if item.change_date %}
             <time class="date">
                 {{ item.change_date }}
             </time>
         {% endif %}
-        <h2>{{ item.code }}</h2>
-        <p>{{ item.description|linebreaksbr }}</p>
+        <p>{{ item.nickname }}</p>
+        <p>{{ item.txId }}</p>
     </article>
 {% endblock %}
