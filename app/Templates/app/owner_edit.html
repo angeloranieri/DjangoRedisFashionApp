@@ -1,8 +1,8 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <h2>Add or Edit item</h2>
-    <form method="POST" class="item-form">{% csrf_token %}
+    <h2>Add Owner</h2>
+    <form method="POST" class="owner-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-secondary">Save</button>
     </form>

@@ -1,13 +1,13 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <h2>Item identification codes:</h2>
+    <h2>Item list:</h2>
     {% for item in items %}
         <article class="item">
             <time class="date">
                 created: {{ item.created_date }}
             </time>
-            <h2><a href="{% url 'item_detail' pk=item.pk %}">{{ item.code }}</a></h2>
+            <h2><a href="{% url 'item_detail' pk=item.pk %}">{{ item.name }}</a></h2>
             <p>{{ item.description|linebreaksbr }}</p>
         </article>
     {% endfor %}

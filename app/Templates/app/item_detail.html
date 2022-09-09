@@ -7,18 +7,23 @@
             <a class="btn btn-secondary" href="{% url 'item_edit' pk=item.pk %}">
                 {% include './icons/pencil-fill.svg' %}
             </a>
+            <a class="btn btn-secondary" href="{% url 'owner_edit' pk=item.pk %}">
+                {% include './icons/file-earmark-plus.svg' %}
+            </a>
         {% endif %}
         </aside>
 
-        <h2>{{ item.code }}</h2>
-        <p>{{ item.description|linebreaksbr }}</p>
-        <h4>Detail of item exchanges:</h4>
-        {% if item.change_date %}
+        <h2>Item name: {{ item.name }}</h2>
+        <p>Description: {{ item.description|linebreaksbr }}</p>
+        <h3>Detail of item exchanges:</h3>
+        {% for owner in owners %}
             <time class="date">
-                {{ item.change_date }}
+                created: {{ owner.change_date }}
             </time>
-        {% endif %}
-        <p>{{ item.nickname }}</p>
-        <p>{{ item.txId }}</p>
+            <h4><a>Owner: {{ owner.nickname }}</a></h4>
+            <p>tx: {{ owner.txId }}</p>
+        {% endfor %}
+        <h4><a href="https://ropsten.etherscan.io/">clik here to check on chain transaction</a></h4>
+
     </article>
 {% endblock %}
