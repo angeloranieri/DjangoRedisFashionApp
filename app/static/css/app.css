@@ -36,12 +36,17 @@ h4 {
 }
 
 .top-menu,
-.top-menu:hover,
 .top-menu:visited {
-    color: #ffffff;
+    color: #FFFFFF;
+    background: none;
+    border-color: #FFFFFF;
     float: right;
-    font-size: 26pt;
     margin-right: 20px;
+}
+
+.top-menu:hover {
+    color: none;
+    background-color: #FFFFFF;
 }
 
 .item {
@@ -61,7 +66,7 @@ h4 {
 .btn-secondary,
 .btn-secondary:visited {
     color: #C25100;
-    background: none;
+    background: #228B22;
     border-color: #C25100;
 }
 

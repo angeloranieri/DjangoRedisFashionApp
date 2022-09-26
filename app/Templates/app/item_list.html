@@ -2,6 +2,12 @@
 
 {% block content %}
     <h2>Item list:</h2>
+     {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <h3>ATTENTION! The last logged in IP is different from this one.</h3>
+    </div>
+    {% endif %}
+
     {% for item in items %}
         <article class="item">
             <time class="date">

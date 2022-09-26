@@ -3,6 +3,40 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Item
 from .forms import ItemForm, OwnerForm
+from django.contrib.auth.decorators import login_required
+import redis
+
+
+SERVER_IP = '127.0.0.1'
+SERVER_PORT = '6379'
+PASSWORD = ''
+DB = 0
+
+def home_item_list(request):
+    diff_ip = False
+    username = request.user.username
+
+    client = redis.StrictRedis(host=SERVER_IP,
+                               port=SERVER_PORT,
+                               password=PASSWORD,
+                               db=DB,
+                               charset="utf-8",
+                               decode_responses=True)
+
+    # Client last ip
+    last_ip = client.get(username)
+    # Client current ip
+    current_ip = request.META['REMOTE_ADDR']
+    if current_ip != last_ip:
+        client.set(username, current_ip)
+        if current_ip != None:
+            diff_ip = True
+
+    context = {
+        'items': Item.objects.all().order_by('created_date'),
+        'error': diff_ip
+    }
+    return render(request, 'app/item_list.html', context)
 
 def item_list(request):
     items = Item.objects.all().order_by('created_date')
@@ -51,3 +85,5 @@ def owner_edit(request, pk):
     else:
         form = OwnerForm
     return render(request, 'app/owner_edit.html', {'form': form})
+
+
