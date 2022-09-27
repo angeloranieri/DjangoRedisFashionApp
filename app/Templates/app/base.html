@@ -12,12 +12,12 @@
           <div class="container">
 
           {% if user.is_authenticated %}
-              <a href="{% url 'item_new' %}" class="top-menu">
+              <a href="{% url 'item_new' %}" class="btn top-menu">
                     {% include './icons/file-earmark-plus.svg' %}
               </a>
-              <button type="submit" class="btn top-menu" href="{% url 'logout' %}">Logout</button>
+              <a class="btn top-menu" href="{% url 'logout' %}">Logout</a>
               {% else %}
-              <button type="submit" class="btn top-menu" href="{% url 'login' %}">Login</button>
+              <a class="btn top-menu" href="{% url 'login' %}">Login</a>
           {% endif %}
               <h1><a href="/">Second Hand Fashion App</a></h1>
           </div>

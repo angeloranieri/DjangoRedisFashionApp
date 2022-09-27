@@ -3,7 +3,6 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Item
 from .forms import ItemForm, OwnerForm
-from django.contrib.auth.decorators import login_required
 import redis
 
 

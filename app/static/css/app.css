@@ -38,15 +38,16 @@ h4 {
 .top-menu,
 .top-menu:visited {
     color: #FFFFFF;
-    background: none;
+    background: #228B22;
     border-color: #FFFFFF;
     float: right;
     margin-right: 20px;
 }
 
 .top-menu:hover {
-    color: none;
+    color: #228B22;
     background-color: #FFFFFF;
+    border-color: #FFFFFF
 }
 
 .item {
@@ -66,11 +67,11 @@ h4 {
 .btn-secondary,
 .btn-secondary:visited {
     color: #C25100;
-    background: #228B22;
+    background: #ffffff;
     border-color: #C25100;
 }
 
 .btn-secondary:hover {
-    color: #FFFFFF;
+    color: #ffffff;
     background-color: #C25100;
 }
