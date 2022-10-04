@@ -16,6 +16,7 @@
                     {% include './icons/file-earmark-plus.svg' %}
               </a>
               <a class="btn top-menu" href="{% url 'logout' %}">Logout</a>
+              <a class="btn top-menu" href="{% url 'item_list' %}">List</a>
               {% else %}
               <a class="btn top-menu" href="{% url 'login' %}">Login</a>
           {% endif %}

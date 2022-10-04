@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<center>
+    <h2>Check your item history</h2>
+    <h3>Insert item's code</h3>
+    <form method="POST" action="{% url 'searched_item' %}">{% csrf_token %}
+        <input type="search" placeholder="Insert Code" name="searched">
+        <button type="submit" class="btn btn-secondary">Search</button>
+    </form>
+</center>
+
+{% endblock %}

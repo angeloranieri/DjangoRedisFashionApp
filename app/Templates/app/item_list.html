@@ -14,6 +14,7 @@
                 created: {{ item.created_date }}
             </time>
             <h2><a href="{% url 'item_detail' pk=item.pk %}">{{ item.name }}</a></h2>
+            <p>{{ item.code }}</p>
             <p>{{ item.description|linebreaksbr }}</p>
         </article>
     {% endfor %}

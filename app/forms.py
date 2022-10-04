@@ -6,7 +6,7 @@ class ItemForm(forms.ModelForm):
 
     class Meta:
         model = Item
-        fields = ('name', 'description',)
+        fields = ('name', 'code', 'description',)
 
 class OwnerForm(forms.ModelForm):
 

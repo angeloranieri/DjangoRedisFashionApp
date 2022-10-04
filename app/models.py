@@ -6,7 +6,8 @@ import json
 
 class Item(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=200)
+    code = models.CharField(max_length=200, default=True)
     description = models.TextField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
 

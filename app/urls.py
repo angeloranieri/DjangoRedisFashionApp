@@ -4,7 +4,9 @@ from django.contrib.auth.views import LoginView, LogoutView
 from .forms import UserLogin
 
 urlpatterns = [
-    path('', views.home_item_list, name='item_list'),
+    path('', views.home, name='home'),
+    path('item/searched/', views.searched_item, name='searched_item'),
+    path('item/list/', views.home_item_list, name='item_list'),
     path('login/', LoginView.as_view(template_name='app/login.html', form_class=UserLogin), name='login'),
     path('logout/', LogoutView.as_view(template_name='app/logout.html'), name='logout'),
     path('item/<int:pk>/', views.item_detail, name='item_detail'),

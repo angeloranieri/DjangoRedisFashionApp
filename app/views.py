@@ -5,7 +5,6 @@ from .models import Item
 from .forms import ItemForm, OwnerForm
 import redis
 
-
 SERVER_IP = '127.0.0.1'
 SERVER_PORT = '6379'
 PASSWORD = ''
@@ -36,10 +35,6 @@ def home_item_list(request):
         'error': diff_ip
     }
     return render(request, 'app/item_list.html', context)
-
-def item_list(request):
-    items = Item.objects.all().order_by('created_date')
-    return render(request, 'app/item_list.html', {'items': items})
 
 def item_detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
@@ -84,5 +79,23 @@ def owner_edit(request, pk):
     else:
         form = OwnerForm
     return render(request, 'app/owner_edit.html', {'form': form})
+
+def home(request):
+    if request.method == 'POST':
+        return render(request, 'app/searched_item.html', {})
+    else:
+        return render(request, 'app/home.html', {})
+
+def searched_item(request):
+    searched = request.POST['searched']
+    items = Item.objects.filter(code__contains=searched)
+    return render(request, 'app/searched_item.html', {'searched': searched, 'items': items})
+
+
+
+
+
+
+
 
 

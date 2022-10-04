@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <center>
+        {% if searched %}
+            <h2>You searched for {{ searched }}</h2>
+            <br/>
+            {% for item in items %}
+            <h3><a href="{% url 'item_detail' pk=item.pk %}"> {{ item.name }}</a><br/></h3>
+            {% endfor %}
+        {% else %}
+            <h2>You forgot to insert the code!</h2>
+            <div class="">
+            <a href="{% url 'home' %}" class="btn btn-secondary">Go home</a>
+            </div>
+        {% endif %}
+    </center>
+{% endblock %}
